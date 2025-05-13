@@ -1,0 +1,47 @@
+@import '../../style/sass/variables';
+@import '../../style/sass/mixins';
+
+.category-nav {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    color: $color-white;
+    border-top: 1px solid $color-gray ;
+
+    ul {
+        display: flex;
+        flex-direction: row;
+        padding-left: 5px;
+        margin-top: 0;
+        margin-bottom: 0;
+
+        li {
+            list-style: none;
+            padding: 0.5em;
+            margin: 0.5em;
+            font-size: 1rem;
+
+            &:hover {
+                background-color: $color-gray;
+                border-radius: 5px;
+                cursor: pointer;
+                transition: background-color 0.3s ease;
+            }
+            &.active {
+                background-color: $color-gray;
+                border-radius: 5px;
+            }
+        }      
+    } 
+    
+    a {
+        text-decoration: none;
+        color: #ffffff;
+        height: 1.8em;
+        font-size: 0.9em;
+        font-weight: 700;
+
+        @include underline-transition(1.1);
+    }
+    
+}

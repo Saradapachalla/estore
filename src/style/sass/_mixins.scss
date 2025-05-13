@@ -1,0 +1,40 @@
+$default-width: 0;
+
+@mixin transition($property, $duration){ 
+    transition: $property $duration ease;
+}
+
+@mixin underline-transition($width) {
+    &::after {
+            content: '';
+            display: block;
+            bottom: 0;
+            left: 0;
+            height: 0.2em;
+            background-color: $color-red;
+            transform: scaleX(0);
+            @include transition(transform, 0.2s);
+        }
+        &:hover::after {
+            transform: scaleX($width);
+        }
+        &:active::after {
+            transform: scaleX($default-width);
+        }
+}
+
+@mixin style-reset-a-li {
+    a {
+        text-decoration: none;
+        color: $color-black;
+
+        &:hover {
+            text-decoration: none;
+            color: $color-black;
+        }
+    }
+    li {
+        list-style-type: none;
+    }
+    
+}
