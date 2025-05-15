@@ -1,27 +1,10 @@
+import { useSelector } from 'react-redux';
+import productSlice from '../../store/slices/productSlice';
 import './_products.scss'
 
 const Products = () => {
 
-    const productData = [
-        {
-            id: 1,
-            pName: "Jacket",
-            price: 99.99,
-            image: "https://placehold.co/100x200/png"
-        },
-        {
-            id: 2,
-            pName: "Shirt",
-            price: 49.99,
-            image: "https://placehold.co/100x200/png"
-        },
-        {
-            id: 3,
-            pName: "Pants",
-            price: 79.99,
-            image: "https://placehold.co/100x200/png"
-        }
-    ]
+    const productData = useSelector(productSlice.getInitialState);
 
     return (
         <>
