@@ -1,23 +1,18 @@
+import { useSelector } from 'react-redux';
+import categorySlice from '../../store/slices/categorySlice';
 import './_category-nav.scss';
 
 const CategoryNav = () => {
-
+    const categories = useSelector(categorySlice.getInitialState);
     return (
         <>
             <div className="category-nav bg-dark">
                 <ul className="nav-list">
-                    <li className="nav-item">
-                        <a href="#" className="nav-link">Men</a>
-                    </li>
-                    <li className="nav-item">
-                        <a href="#" className="nav-link">Women</a>    
-                    </li>
-                    <li className="nav-item">
-                        <a href="#" className="nav-link">Kids</a>
-                    </li>
-                    <li className="nav-item">
-                        <a href="#" className="nav-link">Best Offers</a>
-                    </li>
+                    {categories.map((category, index) => (
+                        <li className="nav-item" key={index}>
+                            <a href="#" className="nav-link">{category}</a>
+                        </li>
+                    ))}
                 </ul>
             </div>
         </>
